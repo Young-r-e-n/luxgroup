@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Namasi Luxury Hair — The Art of Luxury Hair</title>
+<meta name="description" content="Discover luxurious hair, thoughtfully curated for those who appreciate exceptional quality and effortless elegance." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --esp:#241916; --champ:#D9C2A0; --ivory:#F9F5EF; --beige:#E9DED1; --brown:#48332B;
+  --serif:'Cormorant Garamond',serif; --sans:'DM Sans',sans-serif;
+  --gutter:clamp(1.25rem,5vw,5rem); --ease:cubic-bezier(.22,.61,.36,1); --nav:80px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+body{font-family:var(--sans);font-size:16px;line-height:1.7;color:var(--esp);background:var(--ivory);font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.01em}
+h1{font-size:clamp(2.8rem,7vw,6.2rem)}
+h2{font-size:clamp(2.1rem,4.5vw,4rem)}
+h3{font-size:clamp(1.5rem,2.4vw,2rem)}
+::selection{background:var(--champ);color:var(--esp)}
+:focus-visible{outline:2px solid var(--champ);outline-offset:3px}
+.shell{width:100%;max-width:1440px;margin:auto;padding-inline:var(--gutter)}
+.eyebrow{font-size:.68rem;font-weight:500;letter-spacing:.34em;text-transform:uppercase;color:var(--brown);display:inline-flex;align-items:center;gap:.8rem}
+.eyebrow::before{content:"";width:30px;height:1px;background:currentColor;opacity:.6}
+.lede{font-size:1.02rem;line-height:1.85;color:#3a2c24;max-width:56ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.7rem;padding:1rem 1.9rem;font-size:.7rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;border:1px solid var(--esp);background:var(--esp);color:var(--ivory);transition:.5s var(--ease);min-height:48px;position:relative}
+.btn:hover{background:var(--champ);border-color:var(--champ);color:var(--esp);letter-spacing:.26em}
+.btn--ghost{background:transparent;color:var(--esp)}
+.btn--ghost:hover{background:var(--esp);color:var(--ivory)}
+.btn--light{background:var(--ivory);color:var(--esp);border-color:var(--ivory)}
+.btn--light:hover{background:transparent;color:var(--ivory);border-color:var(--ivory)}
+.btn .ar{transition:transform .5s var(--ease)}
+.btn:hover .ar{transform:translateX(5px)}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-d="1"]{transition-delay:.1s}.reveal[data-d="2"]{transition-delay:.2s}.reveal[data-d="3"]{transition-delay:.3s}
+
+/* Announcement */
+.ann{background:var(--esp);color:var(--champ);text-align:center;padding:.7rem 1rem;font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;font-weight:500}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:100;background:rgba(249,245,239,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(36,25,22,.08);height:var(--nav);display:flex;align-items:center}
+.nav__in{width:100%;max-width:1440px;margin:auto;padding-inline:var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{font-family:var(--serif);font-size:1.15rem;letter-spacing:.28em;text-transform:uppercase;color:var(--esp);font-weight:500;display:flex;flex-direction:column;line-height:1}
+.logo small{font-size:.5rem;letter-spacing:.4em;color:var(--brown);margin-top:.35rem;font-family:var(--sans)}
+.nav__links{display:flex;gap:2.4rem;list-style:none}
+.nav__links a{font-size:.68rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#5a453b;position:relative;padding:.4rem 0;transition:color .4s}
+.nav__links a::after{content:"";position:absolute;left:50%;bottom:0;width:0;height:1px;background:var(--brown);transition:width .4s var(--ease);transform:translateX(-50%)}
+.nav__links a:hover{color:var(--esp)}
+.nav__links a:hover::after{width:100%}
+.nav__cta{padding:.9rem 1.5rem;font-size:.64rem}
+.burger{display:none;flex-direction:column;gap:5px;width:44px;height:44px;justify-content:center;align-items:center;border:1px solid rgba(36,25,22,.2)}
+.burger span{width:20px;height:1px;background:var(--esp);transition:.4s var(--ease)}
+.burger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.drawer{position:fixed;inset:0;z-index:99;background:var(--esp);display:flex;flex-direction:column;justify-content:center;padding:calc(var(--nav) + 2rem) var(--gutter) 3rem;opacity:0;visibility:hidden;transition:.5s var(--ease);transform:translateY(-2%)}
+.drawer.open{opacity:1;visibility:visible;transform:none}
+.drawer ul{list-style:none;display:flex;flex-direction:column;gap:.2rem}
+.drawer a{display:block;padding:1.1rem 0;border-bottom:1px solid rgba(217,194,160,.18);font-family:var(--serif);font-size:2rem;color:var(--ivory);transition:.4s}
+.drawer a:hover{color:var(--champ);padding-left:.6rem}
+.drawer .drawer__foot{margin-top:2.5rem;display:flex;flex-direction:column;gap:1.2rem}
+.drawer .drawer__foot small{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:#9c8472}
+
+/* Hero */
+.hero{position:relative;min-height:calc(100svh - var(--nav) - 40px);display:flex;align-items:flex-end;color:var(--ivory);overflow:hidden;background:var(--esp)}
+.hero__media{position:absolute;inset:0;z-index:0}
+.hero__media img{width:100%;height:100%;object-fit:cover;object-position:center 35%}
+.hero__scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,13,11,.88) 0%,rgba(20,13,11,.45) 45%,rgba(20,13,11,.15) 75%),linear-gradient(to right,rgba(20,13,11,.4),transparent 60%)}
+.hero__in{position:relative;z-index:1;width:100%;max-width:1440px;margin:auto;padding:var(--gutter) var(--gutter) clamp(3rem,6vw,6rem)}
+.hero__content{max-width:780px}
+.hero h1{color:#fff;margin-bottom:1.4rem}
+.hero h1 em{font-style:italic;color:var(--champ);font-weight:300}
+.hero__eyebrow{color:var(--champ);margin-bottom:1.4rem}
+.hero p.lede{color:rgba(249,245,239,.85);font-size:1.08rem;margin-bottom:2.2rem}
+.hero__btns{display:flex;gap:1rem;flex-wrap:wrap}
+.hero__btns .btn--ghost{border-color:rgba(249,245,239,.5);color:var(--ivory)}
+.hero__btns .btn--ghost:hover{background:var(--ivory);color:var(--esp);border-color:var(--ivory)}
+
+/* Section base */
+section{padding:clamp(4rem,8vw,7rem) 0}
+.section-head{max-width:640px;margin-bottom:clamp(2.5rem,5vw,4rem)}
+.section-head .eyebrow{margin-bottom:1.2rem}
+.section-head h2 em{font-style:italic;color:var(--brown)}
+
+/* Collections */
+.collections{background:var(--ivory)}
+.coll-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(1.2rem,2.4vw,2rem)}
+.coll{position:relative;overflow:hidden;background:var(--beige);cursor:pointer}
+.coll img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 1.2s var(--ease)}
+.coll:hover img{transform:scale(1.06)}
+.coll__overlay{position:absolute;inset:auto 0 0 0;padding:1.8rem;background:linear-gradient(to top,rgba(20,13,11,.82),transparent);color:var(--ivory)}
+.coll__overlay h3{font-size:1.6rem;color:var(--ivory);margin-bottom:.3rem}
+.coll__overlay span{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--champ)}
+
+/* Story */
+.story{background:var(--beige)}
+.story__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,6rem);align-items:center}
+.story__img{position:relative}
+.story__img img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.story__img::before{content:"";position:absolute;top:-1.2rem;left:-1.2rem;width:50%;height:50%;border-top:1px solid var(--brown);border-left:1px solid var(--brown);opacity:.5}
+.story__copy .eyebrow{margin-bottom:1.2rem}
+.story__copy h2{margin-bottom:1.3rem}
+.story__copy h2 em{font-style:italic;color:var(--brown)}
+.story__copy .lede{margin-bottom:1.2rem}
+
+/* Products */
+.products{background:var(--ivory)}
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,2.4vw,2rem)}
+.prod{background:var(--white);overflow:hidden;transition:transform .5s var(--ease)}
+.prod:hover{transform:translateY(-4px)}
+.prod__img{overflow:hidden;background:var(--beige)}
+.prod__img img{width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform 1.2s var(--ease)}
+.prod:hover .prod__img img{transform:scale(1.05)}
+.prod__body{padding:1.4rem 1.4rem 1.6rem}
+.prod__cat{font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--brown);margin-bottom:.5rem}
+.prod__name{font-family:var(--serif);font-size:1.3rem;color:var(--esp);margin-bottom:.5rem}
+.prod__price{font-size:.92rem;color:var(--brown);margin-bottom:1rem;font-weight:400}
+.prod__price small{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:#9c8472;margin-left:.4rem}
+.prod .btn{width:100%;padding:.8rem;font-size:.62rem}
+.demo-tag{display:inline-block;font-size:.55rem;letter-spacing:.24em;text-transform:uppercase;color:#9c8472;border:1px dashed rgba(156,132,114,.5);padding:.35rem .7rem;margin-bottom:1.4rem}
+
+/* Values */
+.values{background:var(--esp);color:var(--ivory)}
+.values .eyebrow{color:var(--champ)}
+.values h2{color:#fff;margin-bottom:1rem}
+.values h2 em{font-style:italic;color:var(--champ)}
+.values__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,4vw,3.5rem);margin-top:3rem}
+.value{border-top:1px solid rgba(217,194,160,.22);padding-top:1.8rem}
+.value__num{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--champ);display:block;margin-bottom:.9rem}
+.value h3{color:#fff;font-size:1.5rem;margin-bottom:.5rem}
+.value p{color:rgba(249,245,239,.65);font-size:.94rem;line-height:1.75}
+
+/* Contact */
+.contact{background:var(--ivory)}
+.contact__grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2.5rem,6vw,7rem)}
+.contact__intro .eyebrow{margin-bottom:1.2rem}
+.contact__intro h2{margin-bottom:1.2rem}
+.contact__intro h2 em{font-style:italic;color:var(--brown)}
+.contact__intro .lede{margin-bottom:2rem}
+.channels{display:flex;flex-direction:column;border-top:1px solid rgba(36,25,22,.14)}
+.ch{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 0;border-bottom:1px solid rgba(36,25,22,.14);transition:.4s;color:var(--esp)}
+.ch:hover{padding-left:.5rem;color:var(--brown)}
+.ch span small{display:block;font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:#9c8472;margin-bottom:.2rem}
+.ch span b{font-weight:400;font-size:.96rem}
+.ch .ar{color:var(--brown)}
+.form{display:flex;flex-direction:column;gap:1.3rem}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1.3rem}
+.field{display:flex;flex-direction:column;gap:.4rem}
+.field label{font-size:.58rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:#9c8472}
+.field input,.field textarea{font-family:var(--sans);font-size:.96rem;font-weight:300;color:var(--esp);background:transparent;border:0;border-bottom:1px solid rgba(36,25,22,.28);padding:.6rem 0;transition:.4s;resize:vertical}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--champ)}
+.field.err input,.field.err textarea{border-color:#A4553F}
+.field__err{font-size:.66rem;color:#A4553F;opacity:0;min-height:.9em;transition:.3s}
+.field.err .field__err{opacity:1}
+.form__foot{display:flex;flex-wrap:wrap;align-items:center;gap:1.2rem;margin-top:.6rem}
+.form__note{font-size:.66rem;color:#9c8472;max-width:32ch;line-height:1.6}
+.form__ok{display:none;border:1px solid rgba(217,194,160,.6);background:rgba(233,222,209,.5);padding:1rem 1.2rem;font-size:.86rem;color:#3a2c24;line-height:1.6}
+.form__ok.show{display:block}
+
+/* Hub banner */
+.hub-banner{background:var(--brown);color:var(--ivory);padding:1.2rem 0;text-align:center}
+.hub-banner .shell{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1.2rem}
+.hub-banner span{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;opacity:.7}
+.hub-banner a{font-family:var(--serif);font-size:1.05rem;letter-spacing:.14em;color:var(--champ);border-bottom:1px solid var(--champ);padding-bottom:.15rem}
+
+/* Footer */
+footer{background:var(--esp);color:rgba(249,245,239,.7);padding:clamp(3.5rem,7vw,5.5rem) 0 2rem}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:clamp(2rem,4vw,3.5rem);padding-bottom:3rem;border-bottom:1px solid rgba(217,194,160,.15)}
+.foot-brand .logo{color:var(--ivory);margin-bottom:.6rem}
+.foot-brand .logo small{color:var(--champ)}
+.foot-brand p{font-size:.9rem;line-height:1.75;color:rgba(249,245,239,.58);max-width:26rem;margin-top:1rem}
+.foot-col h4{font-family:var(--sans);font-size:.6rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--champ);margin-bottom:1.2rem}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+.foot-col a{font-size:.88rem;color:rgba(249,245,239,.62);transition:.4s}
+.foot-col a:hover{color:var(--ivory);padding-left:.3rem}
+.foot-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;padding-top:2rem;font-size:.66rem;color:rgba(249,245,239,.42);letter-spacing:.08em}
+.foot-bot a{color:rgba(249,245,239,.6)}
+.foot-bot a:hover{color:var(--ivory)}
+.socials{display:flex;gap:1.2rem;margin-top:1rem}
+.socials a{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(249,245,239,.6)}
+.socials a:hover{color:var(--champ)}
+
+/* To top */
+.totop{position:fixed;right:1.4rem;bottom:1.4rem;z-index:90;width:46px;height:46px;display:grid;place-items:center;background:var(--esp);color:var(--ivory);opacity:0;visibility:hidden;transform:translateY(10px);transition:.4s var(--ease);border:1px solid transparent}
+.totop.show{opacity:1;visibility:visible;transform:none}
+.totop:hover{background:var(--champ);color:var(--esp)}
+
+/* Responsive */
+@media(max-width:1024px){
+  .nav__links{display:none}.nav__cta{display:none}.burger{display:flex}
+  .story__grid{grid-template-columns:1fr}.story__img{order:-1}.story__img img{aspect-ratio:16/11}
+  .story__img::before{display:none}
+  .coll-grid{grid-template-columns:1fr}
+  .prod-grid{grid-template-columns:repeat(2,1fr)}
+  .values__grid{grid-template-columns:1fr;gap:2rem}
+  .contact__grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}
+}
+@media(max-width:640px){
+  .row{grid-template-columns:1fr}
+  .prod-grid{grid-template-columns:1fr}
+  .hero__btns{flex-direction:column;align-items:stretch}
+  .hero__btns .btn{width:100%}
+  .foot-grid{grid-template-columns:1fr}
+  .foot-bot{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<div class="ann">Discover the Art of Luxury Hair</div>
+
+<header class="nav">
+  <div class="nav__in">
+    <a href="index.html" class="logo">Namasi<small>Luxury Hair</small></a>
+    <ul class="nav__links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#shop">Shop Hair</a></li>
+      <li><a href="#collections">Collections</a></li>
+      <li><a href="#about">About Namasi</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#shop" class="btn nav__cta">Shop Collection <span class="ar">→</span></a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#shop">Shop Hair</a></li>
+    <li><a href="#collections">Collections</a></li>
+    <li><a href="#about">About Namasi</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="drawer__foot">
+    <a href="#shop" class="btn btn--light">Shop Collection <span class="ar">→</span></a>
+    <small>Part of The Private Collection</small>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero__media">
+    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=2400&q=80" alt="Editorial beauty portrait of a woman with luxurious hair" fetchpriority="high" />
+  </div>
+  <div class="hero__scrim"></div>
+  <div class="hero__in">
+    <div class="hero__content">
+      <p class="eyebrow hero__eyebrow">Namasi Luxury Hair</p>
+      <h1>Beauty Begins<br/><em>With Confidence.</em></h1>
+      <p class="lede">Discover luxurious hair, thoughtfully curated for those who appreciate exceptional quality and effortless elegance.</p>
+      <div class="hero__btns">
+        <a href="#shop" class="btn btn--light">Explore Collection <span class="ar">→</span></a>
+        <a href="#about" class="btn btn--ghost">Discover Namasi <span class="ar">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTIONS -->
+<section class="collections" id="collections">
+  <div class="shell">
+    <div class="section-head reveal">
+      <p class="eyebrow">Curated Collections</p>
+      <h2>Our Signature <em>Collections.</em></h2>
+      <p class="lede">Four distinct categories, each reflecting our commitment to exceptional hair and refined beauty.</p>
+    </div>
+    <div class="coll-grid">
+      <a class="coll reveal" href="#shop">
+        <img src="https://images.unsplash.com/photo-1595959183082-7b570b7e08e2?auto=format&fit=crop&w=1200&q=80" alt="HD lace wig editorial" loading="lazy" />
+        <div class="coll__overlay"><span>Collection 01</span><h3>HD Lace Wigs</h3></div>
+      </a>
+      <a class="coll reveal" data-d="1" href="#shop">
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80" alt="Human hair bundles" loading="lazy" />
+        <div class="coll__overlay"><span>Collection 02</span><h3>Human Hair Bundles</h3></div>
+      </a>
+      <a class="coll reveal" data-d="2" href="#shop">
+        <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=1200&q=80" alt="Luxury closures and frontals" loading="lazy" />
+        <div class="coll__overlay"><span>Collection 03</span><h3>Luxury Closures &amp; Frontals</h3></div>
+      </a>
+      <a class="coll reveal" data-d="3" href="#shop">
+        <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1200&q=80" alt="Ready-to-wear wigs" loading="lazy" />
+        <div class="coll__overlay"><span>Collection 04</span><h3>Ready-to-Wear Wigs</h3></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="about">
+  <div class="shell story__grid">
+    <div class="story__img reveal">
+      <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?auto=format&fit=crop&w=1200&q=80" alt="Woman with luxurious natural hair, editorial beauty" loading="lazy" />
+    </div>
+    <div class="story__copy reveal" data-d="2">
+      <p class="eyebrow">Our Philosophy</p>
+      <h2>More Than Hair.<br/><em>An Expression of You.</em></h2>
+      <p class="lede">At Namasi, we believe luxury is personal. Every strand is carefully selected, every texture thoughtfully considered, and every piece crafted to help you feel effortlessly, unapologetically yourself.</p>
+      <p class="lede">Our commitment to quality goes beyond the surface — it's about confidence, self-expression, and the quiet elegance of feeling truly at home in your own beauty.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="shop">
+  <div class="shell">
+    <div class="section-head reveal">
+      <p class="eyebrow">Featured Selection</p>
+      <h2>Signature <em>Pieces.</em></h2>
+      <p class="lede">A curated glimpse into the Namasi world. Every piece is crafted for those who appreciate the finer details.</p>
+      <span class="demo-tag">Demonstration catalogue · not for purchase</span>
+    </div>
+    <div class="prod-grid">
+      <article class="prod reveal">
+        <div class="prod__img"><img src="https://images.unsplash.com/photo-1595959183082-7b570b7e08e2?auto=format&fit=crop&w=900&q=80" alt="Silk Straight HD Lace Wig" loading="lazy" /></div>
+        <div class="prod__body">
+          <p class="prod__cat">HD Lace Wig</p>
+          <h3 class="prod__name">Silk Straight</h3>
+          <p class="prod__price">$680.00 <small>USD · demo</small></p>
+          <a href="#contact" class="btn">View Product <span class="ar">→</span></a>
+        </div>
+      </article>
+      <article class="prod reveal" data-d="1">
+        <div class="prod__img"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80" alt="Body Wave Bundle Set" loading="lazy" /></div>
+        <div class="prod__body">
+          <p class="prod__cat">Bundle Set</p>
+          <h3 class="prod__name">Body Wave Trio</h3>
+          <p class="prod__price">$420.00 <small>USD · demo</small></p>
+          <a href="#contact" class="btn">View Product <span class="ar">→</span></a>
+        </div>
+      </article>
+      <article class="prod reveal" data-d="2">
+        <div class="prod__img"><img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=900&q=80" alt="Luxury 13x4 Frontal" loading="lazy" /></div>
+        <div class="prod__body">
+          <p class="prod__cat">Closure &amp; Frontal</p>
+          <h3 class="prod__name">13x4 Luxe Frontal</h3>
+          <p class="prod__price">$295.00 <small>USD · demo</small></p>
+          <a href="#contact" class="btn">View Product <span class="ar">→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="shell">
+    <div class="reveal">
+      <p class="eyebrow">Why Namasi</p>
+      <h2>The Namasi <em>Standard.</em></h2>
+      <p class="lede" style="color:rgba(249,245,239,.7)">Three commitments that define everything we create.</p>
+    </div>
+    <div class="values__grid">
+      <div class="value reveal">
+        <span class="value__num">01 —</span>
+        <h3>Premium Selection</h3>
+        <p>Every strand is carefully sourced, inspected and selected for exceptional quality and lasting beauty.</p>
+      </div>
+      <div class="value reveal" data-d="1">
+        <span class="value__num">02 —</span>
+        <h3>Quality &amp; Craftsmanship</h3>
+        <p>Thoughtful construction and refined finishing elevate each piece into an enduring expression of luxury.</p>
+      </div>
+      <div class="value reveal" data-d="2">
+        <span class="value__num">03 —</span>
+        <h3>Confidence &amp; Expression</h3>
+        <p>We believe true luxury is feeling effortlessly yourself — confident, elegant and entirely your own.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="shell contact__grid">
+    <div class="contact__intro reveal">
+      <p class="eyebrow">Connect</p>
+      <h2>Let's Talk <em>Hair.</em></h2>
+      <p class="lede">For enquiries, personal styling or bespoke requests, we'd be delighted to hear from you.</p>
+      <div class="channels">
+        <a href="https://wa.me/10000000000" target="_blank" rel="noopener noreferrer" class="ch">
+          <span><small>WhatsApp</small><b>Message us directly</b></span><span class="ar">↗</span>
+        </a>
+        <a href="mailto:hello@namasi.example" class="ch">
+          <span><small>Email</small><b>hello@namasi.example</b></span><span class="ar">↗</span>
+        </a>
+      </div>
+    </div>
+    <div class="reveal" data-d="2">
+      <form class="form" id="contactForm" novalidate>
+        <div class="row">
+          <div class="field"><label for="n1">Name</label><input id="n1" name="name" type="text" required placeholder="Your full name" /><span class="field__err"></span></div>
+          <div class="field"><label for="n2">Email</label><input id="n2" name="email" type="email" required placeholder="you@example.com" /><span class="field__err"></span></div>
+        </div>
+        <div class="field"><label for="n3">Subject</label><input id="n3" name="subject" type="text" required placeholder="How can we help?" /><span class="field__err"></span></div>
+        <div class="field"><label for="n4">Message</label><textarea id="n4" name="message" rows="4" required placeholder="Tell us a little about your enquiry…"></textarea><span class="field__err"></span></div>
+        <div class="form__foot">
+          <button type="submit" class="btn">Send Enquiry <span class="ar">→</span></button>
+          <p class="form__note">Demonstration form — actual email delivery requires backend integration.</p>
+        </div>
+        <div class="form__ok" id="formOk" role="status">Thank you — your enquiry has been captured for this demonstration.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="hub-banner">
+  <div class="shell">
+    <span>Part of The Private Collection</span>
+    <a href="../index.html">Return to the Business Hub →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="shell">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="logo">Namasi<small>Luxury Hair</small></a>
+        <p>A curated world of elevated beauty, luxurious hair and effortless confidence — thoughtfully crafted for those who appreciate the finer things.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="TikTok">TikTok</a>
+          <a href="#" aria-label="Pinterest">Pinterest</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#shop">HD Lace Wigs</a></li>
+          <li><a href="#shop">Human Hair Bundles</a></li>
+          <li><a href="#shop">Closures &amp; Frontals</a></li>
+          <li><a href="#shop">Ready-to-Wear</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Namasi</h4>
+        <ul>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="../index.html">The Collection</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@namasi.example">hello@namasi.example</a></li>
+          <li><a href="https://wa.me/10000000000" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <p>© <span id="yr"></span> Namasi Luxury Hair · Part of The Private Collection</p>
+      <p>Demonstration website · not a live commercial site</p>
+    </div>
+  </div>
+</footer>
+
+<button class="totop" id="toTop" aria-label="Back to top">↑</button>
+
+<script>
+(function(){
+  var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var burger=document.getElementById('burger'), drawer=document.getElementById('drawer');
+  function setDrawer(o){burger.classList.toggle('open',o);drawer.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);drawer.setAttribute('aria-hidden',!o);document.body.style.overflow=o?'hidden':'';}
+  burger.addEventListener('click',function(){setDrawer(!drawer.classList.contains('open'))});
+  drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setDrawer(false)})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&drawer.classList.contains('open'))setDrawer(false)});
+
+  // smooth anchor
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=a.getAttribute('href'); if(id==='#'||!id)return;
+      var t=document.querySelector(id); if(!t)return;
+      e.preventDefault();
+      var nav=document.querySelector('.nav').offsetHeight;
+      var y=t.getBoundingClientRect().top+window.scrollY-nav;
+      window.scrollTo({top:Math.max(0,y),behavior:rm?'auto':'smooth'});
+    });
+  });
+
+  // reveal
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window && !rm){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e)});
+  }else els.forEach(function(e){e.classList.add('in')});
+
+  // to top
+  var toTop=document.getElementById('toTop');
+  window.addEventListener('scroll',function(){toTop.classList.toggle('show',window.scrollY>window.innerHeight*.7)},{passive:true});
+  toTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'})});
+
+  // form
+  var form=document.getElementById('contactForm'), ok=document.getElementById('formOk');
+  var rules={
+    name:function(v){return v.trim().length<2?'Please enter your name.':''},
+    email:function(v){return !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim())?'Enter a valid email.':''},
+    subject:function(v){return !v.trim()?'Please add a subject.':''},
+    message:function(v){return v.trim().length<10?'Please add at least 10 characters.':''}
+  };
+  form.querySelectorAll('input,textarea').forEach(function(inp){
+    inp.addEventListener('blur',function(){check(inp)});
+    inp.addEventListener('input',function(){if(inp.closest('.field').classList.contains('err'))check(inp)});
+  });
+  function check(inp){
+    var f=inp.closest('.field'), msg=rules[inp.name]?rules[inp.name](inp.value):'';
+    f.classList.toggle('err',!!msg);
+    f.querySelector('.field__err').textContent=msg;
+    return !msg;
+  }
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var good=true, first=null;
+    form.querySelectorAll('input,textarea').forEach(function(inp){if(!check(inp)){good=false;if(!first)first=inp}});
+    if(!good){ok.classList.remove('show');first.focus();return;}
+    ok.classList.add('show'); form.reset();
+    form.querySelectorAll('.field').forEach(function(f){f.classList.remove('err');f.querySelector('.field__err').textContent=''});
+    ok.scrollIntoView({behavior:rm?'auto':'smooth',block:'center'});
+  });
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
