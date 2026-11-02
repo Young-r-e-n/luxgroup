@@ -1,0 +1,1818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Private Collection — A Curated World of Ventures</title>
+  <meta name="description" content="A private collection of independently operated businesses united by one vision of excellence — Namasi Luxury Hair, Inside Blueprint, Privé Lux Finds and The Founder." />
+  <meta name="theme-color" content="#28231F" />
+  <meta property="og:title" content="The Private Collection" />
+  <meta property="og:description" content="One vision. Multiple ventures. A curated world of businesses, ideas and experiences." />
+  <meta property="og:type" content="website" />
+
+  <!-- ============================================================
+       FONTS — Cormorant Garamond (editorial serif) + DM Sans (sans)
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       1. DESIGN TOKENS
+       ============================================================ */
+    :root {
+      /* Palette */
+      --ivory:        #F8F5F0;
+      --champagne:    #E9DFD0;
+      --gold:         #B69A70;
+      --gold-soft:    #CBB28C;
+      --espresso:     #28231F;
+      --charcoal:     #34312D;
+      --white:        #FFFFFF;
+      --taupe:        #968A7B;
+      --line:         rgba(40, 35, 31, 0.12);
+      --line-light:   rgba(248, 245, 240, 0.18);
+
+      /* Typography */
+      --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+      --sans:  'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      /* Spacing scale */
+      --sp-1: 0.5rem;
+      --sp-2: 1rem;
+      --sp-3: 1.5rem;
+      --sp-4: 2.5rem;
+      --sp-5: 4rem;
+      --sp-6: 6rem;
+      --sp-7: 9rem;
+
+      /* Layout */
+      --gutter: clamp(1.25rem, 5vw, 5.5rem);
+      --maxw: 1440px;
+      --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+      --nav-h: 84px;
+    }
+
+    /* ============================================================
+       2. RESET & BASE
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--espresso);
+      background: var(--ivory);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+
+    h1, h2, h3, h4 {
+      font-family: var(--serif);
+      font-weight: 400;
+      line-height: 1.06;
+      letter-spacing: -0.01em;
+      margin: 0;
+      color: var(--espresso);
+    }
+    h1 { font-size: clamp(2.9rem, 7.2vw, 6.4rem); }
+    h2 { font-size: clamp(2.2rem, 4.6vw, 4.1rem); }
+    h3 { font-size: clamp(1.65rem, 2.6vw, 2.3rem); }
+    p  { margin: 0; }
+
+    ::selection { background: var(--gold); color: var(--white); }
+
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    /* ============================================================
+       3. UTILITY / SHARED
+       ============================================================ */
+    .shell {
+      width: 100%;
+      max-width: var(--maxw);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+
+    .eyebrow {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.65;
+    }
+    .eyebrow--plain::before { display: none; }
+
+    .lede {
+      font-size: clamp(1rem, 1.25vw, 1.12rem);
+      line-height: 1.85;
+      color: var(--charcoal);
+      font-weight: 300;
+      max-width: 56ch;
+    }
+
+    .rule {
+      height: 1px;
+      background: var(--line);
+      border: 0;
+      margin: 0;
+    }
+
+    /* Buttons ------------------------------------------------- */
+    .btn {
+      --btn-bg: transparent;
+      --btn-fg: var(--espresso);
+      --btn-bd: var(--espresso);
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.85rem;
+      padding: 1.05rem 2.1rem;
+      font-family: var(--sans);
+      font-size: 0.71rem;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--btn-fg);
+      background: var(--btn-bg);
+      border: 1px solid var(--btn-bd);
+      border-radius: 0;
+      transition: background 0.5s var(--ease), color 0.5s var(--ease),
+                  border-color 0.5s var(--ease), letter-spacing 0.5s var(--ease);
+      overflow: hidden;
+      isolation: isolate;
+      min-height: 48px;
+    }
+    .btn__arrow {
+      display: inline-block;
+      transition: transform 0.5s var(--ease);
+      font-size: 0.95em;
+      line-height: 1;
+    }
+    .btn:hover { letter-spacing: 0.28em; }
+    .btn:hover .btn__arrow { transform: translateX(6px); }
+
+    .btn--solid {
+      --btn-bg: var(--espresso);
+      --btn-fg: var(--ivory);
+      --btn-bd: var(--espresso);
+    }
+    .btn--solid:hover { --btn-bg: var(--gold); --btn-bd: var(--gold); --btn-fg: var(--white); }
+
+    .btn--ghost {
+      --btn-bd: rgba(40,35,31,0.3);
+    }
+    .btn--ghost:hover { --btn-bd: var(--espresso); --btn-bg: var(--espresso); --btn-fg: var(--ivory); }
+
+    .btn--light {
+      --btn-fg: var(--ivory);
+      --btn-bd: rgba(248,245,240,0.45);
+    }
+    .btn--light:hover { --btn-bg: var(--ivory); --btn-fg: var(--espresso); --btn-bd: var(--ivory); }
+
+    .btn--light-solid {
+      --btn-bg: var(--ivory);
+      --btn-fg: var(--espresso);
+      --btn-bd: var(--ivory);
+    }
+    .btn--light-solid:hover { --btn-bg: transparent; --btn-fg: var(--ivory); --btn-bd: var(--ivory); }
+
+    /* Text link with underline reveal ------------------------- */
+    .textlink {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--espresso);
+      padding-bottom: 0.4rem;
+    }
+    .textlink::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 100%; height: 1px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.55s var(--ease);
+    }
+    .textlink:hover::after { transform: scaleX(1); }
+
+    /* Reveal on scroll ---------------------------------------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(34px);
+      transition: opacity 1s var(--ease), transform 1s var(--ease);
+      will-change: opacity, transform;
+    }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .reveal[data-delay="1"] { transition-delay: 0.09s; }
+    .reveal[data-delay="2"] { transition-delay: 0.18s; }
+    .reveal[data-delay="3"] { transition-delay: 0.27s; }
+    .reveal[data-delay="4"] { transition-delay: 0.36s; }
+
+    /* ============================================================
+       4. NAVIGATION
+       ============================================================ */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1000;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      transition: background 0.55s var(--ease), height 0.55s var(--ease),
+                  box-shadow 0.55s var(--ease), border-color 0.55s var(--ease);
+      border-bottom: 1px solid transparent;
+      background: transparent;
+    }
+    .nav__inner {
+      width: 100%;
+      max-width: var(--maxw);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-3);
+    }
+
+    .brand {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 0.28rem;
+      line-height: 1;
+      color: var(--ivory);
+      transition: color 0.55s var(--ease);
+    }
+    .brand__mark {
+      font-family: var(--serif);
+      font-size: 1.02rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .brand__sub {
+      font-size: 0.55rem;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      transition: color 0.55s var(--ease);
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: clamp(1.4rem, 2.6vw, 2.8rem);
+      list-style: none;
+      margin: 0; padding: 0;
+    }
+    .nav__link {
+      position: relative;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(248,245,240,0.82);
+      padding: 0.55rem 0;
+      transition: color 0.4s var(--ease);
+    }
+    .nav__link::after {
+      content: "";
+      position: absolute;
+      left: 50%; bottom: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transform: translateX(-50%);
+      transition: width 0.45s var(--ease);
+    }
+    .nav__link:hover { color: var(--ivory); }
+    .nav__link:hover::after,
+    .nav__link.is-active::after { width: 100%; }
+    .nav__link.is-active { color: var(--ivory); }
+
+    .nav__cta { flex-shrink: 0; }
+
+    /* Scrolled state */
+    .nav.is-scrolled {
+      height: 70px;
+      background: rgba(248, 245, 240, 0.92);
+      backdrop-filter: blur(14px) saturate(1.1);
+      -webkit-backdrop-filter: blur(14px) saturate(1.1);
+      border-bottom-color: var(--line);
+      box-shadow: 0 1px 30px rgba(40,35,31,0.06);
+    }
+    .nav.is-scrolled .brand { color: var(--espresso); }
+    .nav.is-scrolled .brand__sub { color: var(--gold); }
+    .nav.is-scrolled .nav__link { color: rgba(40,35,31,0.68); }
+    .nav.is-scrolled .nav__link:hover,
+    .nav.is-scrolled .nav__link.is-active { color: var(--espresso); }
+    .nav.is-scrolled .btn--light {
+      --btn-fg: var(--espresso);
+      --btn-bd: rgba(40,35,31,0.32);
+    }
+    .nav.is-scrolled .btn--light:hover {
+      --btn-bg: var(--espresso); --btn-fg: var(--ivory); --btn-bd: var(--espresso);
+    }
+    .nav.is-scrolled .burger span { background: var(--espresso); }
+
+    /* Burger -------------------------------------------------- */
+    .burger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 46px; height: 46px;
+      padding: 0;
+      background: transparent;
+      border: 1px solid rgba(248,245,240,0.28);
+      transition: border-color 0.4s var(--ease);
+    }
+    .nav.is-scrolled .burger { border-color: var(--line); }
+    .burger span {
+      display: block;
+      width: 20px; height: 1px;
+      margin-inline: auto;
+      background: var(--ivory);
+      transition: transform 0.45s var(--ease), opacity 0.3s var(--ease),
+                  background 0.4s var(--ease);
+    }
+    .burger.is-open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .burger.is-open span:nth-child(2) { opacity: 0; }
+    .burger.is-open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* Mobile drawer ------------------------------------------- */
+    .drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: var(--espresso);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: calc(var(--nav-h) + 2rem) var(--gutter) var(--sp-5);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-2%);
+      transition: opacity 0.6s var(--ease), visibility 0.6s var(--ease),
+                  transform 0.6s var(--ease);
+    }
+    .drawer.is-open { opacity: 1; visibility: visible; transform: none; }
+    .drawer__list {
+      list-style: none;
+      margin: 0; padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .drawer__link {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 1.05rem 0;
+      border-bottom: 1px solid var(--line-light);
+      font-family: var(--serif);
+      font-size: clamp(1.7rem, 8vw, 2.4rem);
+      color: var(--ivory);
+      transition: color 0.4s var(--ease), padding-left 0.5s var(--ease);
+    }
+    .drawer__link:hover { color: var(--gold-soft); padding-left: 0.6rem; }
+    .drawer__link i {
+      font-family: var(--sans);
+      font-style: normal;
+      font-size: 0.6rem;
+      letter-spacing: 0.24em;
+      color: var(--gold);
+      opacity: 0.8;
+    }
+    .drawer__foot {
+      margin-top: var(--sp-4);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+    }
+    .drawer__meta {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--taupe);
+    }
+    .drawer__meta a { color: var(--champagne); }
+
+    /* ============================================================
+       5. HERO
+       ============================================================ */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: flex-end;
+      padding-block: calc(var(--nav-h) + var(--sp-5)) var(--sp-6);
+      color: var(--ivory);
+      overflow: hidden;
+      background: var(--espresso);
+    }
+    .hero__media {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero__media img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 42%;
+      transform: scale(1.06);
+      animation: heroZoom 16s var(--ease) forwards;
+    }
+    @keyframes heroZoom {
+      from { transform: scale(1.12); }
+      to   { transform: scale(1.0); }
+    }
+    .hero__scrim {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(to top, rgba(24,20,17,0.88) 0%, rgba(24,20,17,0.42) 42%, rgba(24,20,17,0.28) 70%, rgba(24,20,17,0.5) 100%),
+        linear-gradient(to right, rgba(24,20,17,0.45) 0%, rgba(24,20,17,0) 65%);
+    }
+    .hero__inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: var(--maxw);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+    .hero__content { max-width: 880px; }
+    .hero__eyebrow { color: var(--gold-soft); margin-bottom: var(--sp-3); }
+    .hero__title { margin-bottom: var(--sp-3); color: var(--white); }
+    .hero__title em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--champagne);
+    }
+    .hero__text {
+      font-size: clamp(1rem, 1.35vw, 1.18rem);
+      line-height: 1.85;
+      color: rgba(248,245,240,0.86);
+      max-width: 52ch;
+      margin-bottom: var(--sp-4);
+    }
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-2);
+      align-items: center;
+    }
+
+    /* Scroll indicator ---------------------------------------- */
+    .scrollcue {
+      position: absolute;
+      right: var(--gutter);
+      bottom: var(--sp-5);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.9rem;
+      color: rgba(248,245,240,0.62);
+    }
+    .scrollcue__label {
+      font-size: 0.58rem;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+    }
+    .scrollcue__track {
+      width: 1px; height: 70px;
+      background: rgba(248,245,240,0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .scrollcue__track::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 34%;
+      background: var(--gold-soft);
+      animation: cueDrop 2.4s var(--ease) infinite;
+    }
+    @keyframes cueDrop {
+      0%   { transform: translateY(-110%); }
+      55%  { transform: translateY(210%); }
+      100% { transform: translateY(210%); }
+    }
+
+    /* ============================================================
+       6. INTRO / INTRODUCTION
+       ============================================================ */
+    .intro {
+      padding-block: var(--sp-7) var(--sp-6);
+      background: var(--ivory);
+    }
+    .intro__grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: clamp(2.5rem, 6vw, 7rem);
+      align-items: center;
+    }
+    .intro__copy { max-width: 30rem; }
+    .intro__copy .eyebrow { margin-bottom: var(--sp-3); }
+    .intro__title { margin-bottom: var(--sp-3); }
+    .intro__title em { font-style: italic; color: var(--gold); }
+    .intro__copy .lede { margin-bottom: var(--sp-4); }
+    .intro__signature {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-size: 0.68rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--taupe);
+    }
+    .intro__signature::before {
+      content: "";
+      width: 44px; height: 1px;
+      background: var(--gold);
+    }
+
+    .intro__figure {
+      position: relative;
+      margin: 0;
+    }
+    .intro__figure img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+    .intro__figure::after {
+      content: "";
+      position: absolute;
+      top: -1.4rem; left: -1.4rem;
+      width: 55%; height: 55%;
+      border-top: 1px solid var(--gold);
+      border-left: 1px solid var(--gold);
+      pointer-events: none;
+      opacity: 0.6;
+    }
+    .intro__caption {
+      position: absolute;
+      bottom: -2.2rem; right: 0;
+      background: var(--ivory);
+      padding: 1.1rem 1.4rem;
+      font-size: 0.62rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      border-top: 1px solid var(--gold);
+    }
+
+    /* ============================================================
+       7. BUSINESSES
+       ============================================================ */
+    .ventures {
+      background: var(--ivory);
+      padding-block: var(--sp-6) var(--sp-7);
+    }
+    .ventures__head {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: var(--sp-4);
+      align-items: end;
+      padding-bottom: var(--sp-5);
+      margin-bottom: var(--sp-5);
+      border-bottom: 1px solid var(--line);
+    }
+    .ventures__head .eyebrow { margin-bottom: var(--sp-2); }
+    .ventures__sub {
+      font-size: 0.98rem;
+      color: var(--taupe);
+      max-width: 34ch;
+      justify-self: end;
+    }
+
+    /* A single editorial venture row -------------------------- */
+    .venture {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 5.5vw, 6rem);
+      align-items: center;
+      padding-block: clamp(3rem, 6vw, 5.5rem);
+      border-bottom: 1px solid var(--line);
+    }
+    .venture:first-of-type { padding-top: 0; }
+    .venture:last-of-type { border-bottom: 0; }
+
+    .venture--flip .venture__media { order: 2; }
+    .venture--flip .venture__copy { order: 1; }
+
+    .venture__media {
+      position: relative;
+      overflow: hidden;
+      background: var(--champagne);
+    }
+    .venture__media img {
+      width: 100%;
+      aspect-ratio: 5 / 6;
+      object-fit: cover;
+      transition: transform 1.4s var(--ease), filter 1.4s var(--ease);
+      filter: saturate(0.92);
+    }
+    .venture:hover .venture__media img {
+      transform: scale(1.045);
+      filter: saturate(1);
+    }
+    .venture__index {
+      position: absolute;
+      top: 1.4rem; left: 1.4rem;
+      z-index: 2;
+      font-family: var(--serif);
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      color: var(--white);
+      background: rgba(40,35,31,0.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      padding: 0.5rem 0.9rem;
+    }
+
+    .venture__copy {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+      max-width: 33rem;
+    }
+    .venture__category {
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .venture__name {
+      font-size: clamp(1.9rem, 3.4vw, 3rem);
+      line-height: 1.05;
+    }
+    .venture__name em { font-style: italic; color: var(--gold); }
+    .venture__desc {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--charcoal);
+      font-weight: 300;
+      margin-block: 0.4rem 0.9rem;
+    }
+    .venture__cta { align-self: flex-start; margin-top: 0.4rem; }
+    .venture__note {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      opacity: 0.85;
+    }
+
+    /* ============================================================
+       8. PHILOSOPHY
+       ============================================================ */
+    .philosophy {
+      position: relative;
+      color: var(--ivory);
+      background: var(--espresso);
+      padding-block: var(--sp-7);
+      overflow: hidden;
+    }
+    .philosophy::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 15% 0%, rgba(182,154,112,0.18), transparent 55%),
+        radial-gradient(ellipse at 90% 100%, rgba(182,154,112,0.10), transparent 50%);
+      pointer-events: none;
+    }
+    .philosophy__inner { position: relative; z-index: 1; }
+    .philosophy__head {
+      max-width: 44rem;
+      margin-bottom: var(--sp-6);
+    }
+    .philosophy__head .eyebrow { color: var(--gold-soft); margin-bottom: var(--sp-3); }
+    .philosophy__head h2 { color: var(--white); }
+    .philosophy__head h2 em { font-style: italic; color: var(--champagne); }
+    .philosophy__head .lede {
+      color: rgba(248,245,240,0.74);
+      margin-top: var(--sp-3);
+    }
+
+    .values {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(1.6rem, 4vw, 4rem);
+      border-top: 1px solid var(--line-light);
+      padding-top: var(--sp-5);
+    }
+    .value { display: flex; flex-direction: column; gap: 0.8rem; }
+    .value__num {
+      font-family: var(--sans);
+      font-size: 0.64rem;
+      letter-spacing: 0.3em;
+      color: var(--gold-soft);
+      text-transform: uppercase;
+    }
+    .value__title {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      color: var(--white);
+      margin-bottom: 0.15rem;
+    }
+    .value__text {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: rgba(248,245,240,0.68);
+      font-weight: 300;
+    }
+
+    /* ============================================================
+       9. FOUNDER
+       ============================================================ */
+    .founder {
+      background: var(--champagne);
+      padding-block: var(--sp-7);
+    }
+    .founder__grid {
+      display: grid;
+      grid-template-columns: 0.92fr 1fr;
+      gap: clamp(2.5rem, 6vw, 7rem);
+      align-items: center;
+    }
+    .founder__figure { position: relative; margin: 0; }
+    .founder__figure img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+    .founder__figure figcaption {
+      position: absolute;
+      bottom: 0; left: 0;
+      background: var(--ivory);
+      padding: 0.85rem 1.3rem;
+      font-size: 0.58rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+    }
+    .founder__copy { max-width: 30rem; }
+    .founder__copy .eyebrow { margin-bottom: var(--sp-3); }
+    .founder__copy h2 { margin-bottom: var(--sp-3); }
+    .founder__copy h2 em { font-style: italic; color: var(--gold); }
+    .founder__copy .lede { margin-bottom: var(--sp-4); }
+    .founder__placeholder {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      border: 1px dashed rgba(150,138,123,0.6);
+      padding: 0.55rem 0.9rem;
+      margin-top: var(--sp-3);
+    }
+    .founder__placeholder::before {
+      content: "";
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    /* ============================================================
+       10. CONTACT
+       ============================================================ */
+    .contact {
+      background: var(--ivory);
+      padding-block: var(--sp-7);
+    }
+    .contact__grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: clamp(2.5rem, 6vw, 7rem);
+    }
+    .contact__intro h2 { margin-block: var(--sp-3) var(--sp-3); }
+    .contact__intro h2 em { font-style: italic; color: var(--gold); }
+    .contact__intro .lede { margin-bottom: var(--sp-4); }
+
+    .contact__channels {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--line);
+      margin-top: var(--sp-4);
+    }
+    .channel {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--line);
+      transition: padding-left 0.5s var(--ease), color 0.4s var(--ease);
+    }
+    .channel:hover { padding-left: 0.5rem; color: var(--gold); }
+    .channel__label {
+      font-size: 0.62rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .channel__value { font-size: 0.98rem; }
+    .channel__arrow { font-size: 1.1rem; color: var(--gold); }
+
+    /* Form ---------------------------------------------------- */
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .form__row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .field { display: flex; flex-direction: column; gap: 0.5rem; }
+    .field label {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--taupe);
+    }
+    .field input,
+    .field textarea {
+      font-family: var(--sans);
+      font-size: 0.98rem;
+      font-weight: 300;
+      color: var(--espresso);
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid rgba(40,35,31,0.28);
+      border-radius: 0;
+      padding: 0.65rem 0;
+      transition: border-color 0.4s var(--ease);
+      resize: vertical;
+    }
+    .field input::placeholder,
+    .field textarea::placeholder { color: rgba(150,138,123,0.7); }
+    .field input:focus,
+    .field textarea:focus {
+      outline: none;
+      border-bottom-color: var(--gold);
+    }
+    .field.invalid input,
+    .field.invalid textarea { border-bottom-color: #A4553F; }
+    .field__error {
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      color: #A4553F;
+      min-height: 1em;
+      opacity: 0;
+      transform: translateY(-3px);
+      transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+    }
+    .field.invalid .field__error { opacity: 1; transform: none; }
+
+    .form__foot {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--sp-2);
+      margin-top: 0.5rem;
+    }
+    .form__disclaimer {
+      font-size: 0.66rem;
+      line-height: 1.7;
+      color: var(--taupe);
+      max-width: 36ch;
+    }
+    .form__success {
+      display: none;
+      align-items: flex-start;
+      gap: 0.9rem;
+      border: 1px solid rgba(182,154,112,0.55);
+      background: rgba(233,223,208,0.5);
+      padding: 1.1rem 1.3rem;
+      font-size: 0.86rem;
+      line-height: 1.6;
+      color: var(--charcoal);
+      margin-top: 0.5rem;
+    }
+    .form__success.is-shown { display: flex; }
+    .form__success::before {
+      content: "✓";
+      color: var(--gold);
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    /* ============================================================
+       11. FOOTER
+       ============================================================ */
+    .footer {
+      background: var(--espresso);
+      color: rgba(248,245,240,0.7);
+      padding-block: var(--sp-6) var(--sp-4);
+    }
+    .footer__top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: clamp(2rem, 4vw, 4rem);
+      padding-bottom: var(--sp-5);
+      border-bottom: 1px solid var(--line-light);
+    }
+    .footer__brand { max-width: 22rem; }
+    .footer__mark {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--ivory);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .footer__tag {
+      font-size: 0.58rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      display: block;
+      margin-bottom: var(--sp-3);
+    }
+    .footer__statement {
+      font-size: 0.92rem;
+      line-height: 1.8;
+      color: rgba(248,245,240,0.62);
+    }
+
+    .footer__col h4 {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin-bottom: var(--sp-3);
+    }
+    .footer__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+    .footer__list a {
+      font-size: 0.9rem;
+      color: rgba(248,245,240,0.68);
+      transition: color 0.4s var(--ease), padding-left 0.4s var(--ease);
+      display: inline-block;
+    }
+    .footer__list a:hover { color: var(--ivory); padding-left: 0.35rem; }
+
+    .footer__bottom {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-2);
+      padding-top: var(--sp-4);
+    }
+    .footer__legal {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: rgba(248,245,240,0.48);
+    }
+    .footer__legal a { color: rgba(248,245,240,0.68); }
+    .footer__legal a:hover { color: var(--ivory); }
+    .footer__socials { display: flex; gap: 1.4rem; }
+    .footer__socials a {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(248,245,240,0.6);
+      transition: color 0.4s var(--ease);
+    }
+    .footer__socials a:hover { color: var(--gold-soft); }
+
+    /* ============================================================
+       12. BACK TO TOP
+       ============================================================ */
+    .totop {
+      position: fixed;
+      right: clamp(1rem, 3vw, 2.2rem);
+      bottom: clamp(1rem, 3vw, 2.2rem);
+      z-index: 900;
+      width: 48px; height: 48px;
+      display: grid;
+      place-items: center;
+      background: var(--espresso);
+      color: var(--ivory);
+      border: 1px solid transparent;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: opacity 0.45s var(--ease), transform 0.45s var(--ease),
+                  visibility 0.45s var(--ease), background 0.4s var(--ease);
+    }
+    .totop.is-shown { opacity: 1; visibility: visible; transform: none; }
+    .totop:hover { background: var(--gold); }
+    .totop span { font-size: 1rem; line-height: 1; }
+
+    /* ============================================================
+       13. RESPONSIVE
+       ============================================================ */
+    @media (max-width: 1080px) {
+      .nav__links { display: none; }
+      .nav__cta { display: none; }
+      .burger { display: flex; }
+
+      .intro__grid,
+      .founder__grid,
+      .contact__grid { grid-template-columns: 1fr; }
+      .intro__figure { order: -1; }
+      .intro__figure img { aspect-ratio: 16 / 11; }
+      .intro__figure::after { display: none; }
+      .intro__caption { position: static; margin-top: 0.9rem; display: inline-block; }
+
+      .ventures__head { grid-template-columns: 1fr; gap: var(--sp-2); }
+      .ventures__sub { justify-self: start; }
+
+      .venture { grid-template-columns: 1fr; gap: var(--sp-3); padding-block: var(--sp-5); }
+      .venture--flip .venture__media { order: 0; }
+      .venture--flip .venture__copy { order: 0; }
+      .venture__media img { aspect-ratio: 4 / 3; }
+      .venture__copy { max-width: none; }
+
+      .footer__top { grid-template-columns: 1fr 1fr; }
+      .footer__brand { grid-column: 1 / -1; max-width: none; }
+    }
+
+    @media (max-width: 780px) {
+      :root { --nav-h: 70px; }
+
+      .values { grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--line-light); }
+      .value {
+        padding-block: 1.5rem;
+        border-bottom: 1px solid var(--line-light);
+        flex-direction: row;
+        align-items: baseline;
+        gap: 1.2rem;
+      }
+      .value__num { flex-shrink: 0; width: 2.2rem; }
+      .value__title { font-size: 1.35rem; }
+
+      .form__row { grid-template-columns: 1fr; gap: 1.5rem; }
+
+      .scrollcue { display: none; }
+
+      .hero { min-height: 92svh; padding-bottom: var(--sp-5); }
+      .hero__actions { flex-direction: column; align-items: stretch; }
+      .hero__actions .btn { width: 100%; }
+
+      .footer__bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      .footer__top { grid-template-columns: 1fr; }
+      .venture__index { top: 0.9rem; left: 0.9rem; font-size: 0.7rem; padding: 0.4rem 0.7rem; }
+      .brand__mark { font-size: 0.86rem; letter-spacing: 0.24em; }
+      .btn { padding-inline: 1.5rem; font-size: 0.66rem; }
+    }
+
+    /* Print-friendly niceties */
+    @media print {
+      .nav, .drawer, .totop, .scrollcue { display: none !important; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      body { background: #fff; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <header class="nav" id="siteNav">
+    <div class="nav__inner">
+      <a class="brand" href="#top" aria-label="The Private Collection — home">
+        <span class="brand__mark">The Private Collection</span>
+        <span class="brand__sub">Curated Ventures</span>
+      </a>
+
+      <nav aria-label="Primary">
+        <ul class="nav__links">
+          <li><a class="nav__link" href="#top" data-nav>Home</a></li>
+          <li><a class="nav__link" href="#businesses" data-nav>Our Businesses</a></li>
+          <li><a class="nav__link" href="#founder" data-nav>The Founder</a></li>
+          <li><a class="nav__link" href="#contact" data-nav>Contact</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn btn--light nav__cta" href="#businesses">
+        Explore Collection <span class="btn__arrow" aria-hidden="true">→</span>
+      </a>
+
+      <button class="burger" id="burger" type="button" aria-label="Open menu"
+              aria-expanded="false" aria-controls="drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <ul class="drawer__list">
+      <li><a class="drawer__link" href="#top" data-drawer-link><i>01</i> Home</a></li>
+      <li><a class="drawer__link" href="#businesses" data-drawer-link><i>02</i> Our Businesses</a></li>
+      <li><a class="drawer__link" href="#philosophy" data-drawer-link><i>03</i> Philosophy</a></li>
+      <li><a class="drawer__link" href="#founder" data-drawer-link><i>04</i> The Founder</a></li>
+      <li><a class="drawer__link" href="#contact" data-drawer-link><i>05</i> Contact</a></li>
+    </ul>
+    <div class="drawer__foot">
+      <a class="btn btn--light-solid" href="#businesses" data-drawer-link>
+        Explore Collection <span class="btn__arrow" aria-hidden="true">→</span>
+      </a>
+      <p class="drawer__meta">
+        Enquiries — <a href="mailto:hello@theprivatecollection.example">hello@theprivatecollection.example</a>
+      </p>
+    </div>
+  </div>
+
+  <main id="top">
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__media">
+        <img
+          src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=80"
+          alt="Warm, minimalist luxury interior with soft natural light and refined architectural detail"
+          fetchpriority="high" />
+      </div>
+      <div class="hero__scrim" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <div class="hero__content">
+          <p class="eyebrow hero__eyebrow">A Private Collection of Businesses</p>
+          <h1 class="hero__title" id="hero-title">
+            One Vision.<br />
+            <em>Multiple Ventures.</em>
+          </h1>
+          <p class="hero__text">
+            A curated world of businesses, ideas and experiences, brought together
+            by one vision of excellence.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--light-solid" href="#businesses">
+              Explore Our Businesses <span class="btn__arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn--light" href="#founder">
+              Meet the Founder <span class="btn__arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="scrollcue" aria-hidden="true">
+        <span class="scrollcue__label">Scroll</span>
+        <span class="scrollcue__track"></span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         INTRODUCTION
+         ============================================================ -->
+    <section class="intro" aria-labelledby="intro-title">
+      <div class="shell intro__grid">
+        <div class="intro__copy reveal">
+          <p class="eyebrow">A World of Possibilities</p>
+          <h2 class="intro__title" id="intro-title">
+            Distinct identities.<br />
+            <em>One connected vision.</em>
+          </h2>
+          <p class="lede">
+            Welcome to a collection of independently operated businesses, each built
+            around a unique purpose, perspective and passion. Discover the brands,
+            explore their offerings and connect with the experiences that speak to you.
+          </p>
+          <p class="intro__signature">Est. in vision — built with intention</p>
+        </div>
+
+        <figure class="intro__figure reveal" data-delay="2">
+          <img
+            src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=80"
+            alt="Refined living space with neutral tones, sculptural furniture and editorial lighting"
+            loading="lazy" />
+          <figcaption class="intro__caption">The Collection · Vol. I</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         OUR BUSINESSES — 4 EDITORIAL FEATURES
+         ============================================================ -->
+    <section class="ventures" id="businesses" aria-labelledby="ventures-title">
+      <div class="shell">
+
+        <div class="ventures__head reveal">
+          <div>
+            <p class="eyebrow">The Portfolio</p>
+            <h2 id="ventures-title">Explore Our World</h2>
+          </div>
+          <p class="ventures__sub">
+            Four distinct expressions of creativity, lifestyle and ambition.
+          </p>
+        </div>
+
+        <!-- 01 · NAMASI LUXURY HAIR -->
+        <article class="venture reveal" aria-labelledby="v1-name">
+          <div class="venture__media">
+            <span class="venture__index">01</span>
+            <img
+              src="https://images.unsplash.com/photo-1595959183082-7b570b7e08e2?auto=format&fit=crop&w=1200&q=80"
+              alt="Editorial beauty portrait with rich, glossy dark hair and soft studio lighting"
+              loading="lazy" />
+          </div>
+          <div class="venture__copy">
+            <p class="venture__category">Luxury Hair &amp; Beauty</p>
+            <h3 class="venture__name" id="v1-name">Namasi <em>Luxury Hair</em></h3>
+            <p class="venture__desc">
+              Discover a world of elevated beauty, luxurious hair and effortless
+              confidence. Namasi Luxury Hair celebrates refined beauty through
+              carefully curated hair collections and exceptional experiences.
+            </p>
+            <a class="btn btn--solid venture__cta" href="https://namasiluxuryhair.example.com"
+               target="_blank" rel="noopener noreferrer">
+              Discover Namasi <span class="btn__arrow" aria-hidden="true">→</span>
+            </a>
+            <span class="venture__note">Placeholder external link</span>
+          </div>
+        </article>
+
+        <!-- 02 · INSIDE BLUEPRINT (flipped) -->
+        <article class="venture venture--flip reveal" aria-labelledby="v2-name">
+          <div class="venture__media">
+            <span class="venture__index">02</span>
+            <img
+              src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
+              alt="Minimalist contemporary office interior with glass, concrete and considered workspaces"
+              loading="lazy" />
+          </div>
+          <div class="venture__copy">
+            <p class="venture__category">Strategy &amp; Professional Services</p>
+            <h3 class="venture__name" id="v2-name">Inside <em>Blueprint</em></h3>
+            <p class="venture__desc">
+              Where ideas meet structure and ambition finds direction. Inside
+              Blueprint brings clarity, thoughtful strategy and purposeful solutions
+              to individuals and businesses looking to move forward.
+            </p>
+            <a class="btn btn--solid venture__cta" href="https://insideblueprint.example.com"
+               target="_blank" rel="noopener noreferrer">
+              Explore Inside Blueprint <span class="btn__arrow" aria-hidden="true">→</span>
+            </a>
+            <span class="venture__note">Placeholder external link</span>
+          </div>
+        </article>
+
+        <!-- 03 · PRIVÉ LUX FINDS -->
+        <article class="venture reveal" aria-labelledby="v3-name">
+          <div class="venture__media">
+            <span class="venture__index">03</span>
+            <img
+              src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1200&q=80"
+              alt="Luxury leather handbag styled on a neutral editorial backdrop with soft shadows"
+              loading="lazy" />
+          </div>
+          <div class="venture__copy">
+            <p class="venture__category">Curated Luxury &amp; Lifestyle</p>
+            <h3 class="venture__name" id="v3-name">Privé <em>Lux Finds</em></h3>
+            <p class="venture__desc">
+              A considered collection of exceptional finds for those who appreciate
+              individuality, quality and timeless style. Discover thoughtfully
+              selected pieces that elevate everyday living.
+            </p>
+            <a class="btn btn--solid venture__cta" href="https://priveluxfinds.example.com"
+               target="_blank" rel="noopener noreferrer">
+              Explore the Collection <span class="btn__arrow" aria-hidden="true">→</span>
+            </a>
+            <span class="venture__note">Placeholder external link</span>
+          </div>
+        </article>
+
+        <!-- 04 · THE FOUNDER (flipped) -->
+        <article class="venture venture--flip reveal" aria-labelledby="v4-name">
+          <div class="venture__media">
+            <span class="venture__index">04</span>
+            <img
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80"
+              alt="Editorial portrait of a founder in refined neutral attire, warm natural light"
+              loading="lazy" />
+          </div>
+          <div class="venture__copy">
+            <p class="venture__category">The Person Behind the Vision</p>
+            <h3 class="venture__name" id="v4-name">The <em>Founder</em></h3>
+            <p class="venture__desc">
+              Every vision begins with a story. Discover the person, philosophy and
+              ambition behind this collection of businesses, and the values that
+              connect each venture.
+            </p>
+            <a class="btn btn--solid venture__cta" href="#founder">
+              Discover the Story <span class="btn__arrow" aria-hidden="true">→</span>
+            </a>
+            <span class="venture__note">On this site</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PHILOSOPHY
+         ============================================================ -->
+    <section class="philosophy" id="philosophy" aria-labelledby="philosophy-title">
+      <div class="shell philosophy__inner">
+        <div class="philosophy__head reveal">
+          <p class="eyebrow">Our Philosophy</p>
+          <h2 id="philosophy-title">
+            Built on Vision.<br />
+            <em>Driven by Purpose.</em>
+          </h2>
+          <p class="lede">
+            Different ventures. Different experiences. One shared commitment to
+            quality, creativity and meaningful growth.
+          </p>
+        </div>
+
+        <div class="values">
+          <div class="value reveal">
+            <span class="value__num">01 —</span>
+            <div>
+              <h3 class="value__title">Purpose</h3>
+              <p class="value__text">Every venture begins with a clear vision.</p>
+            </div>
+          </div>
+          <div class="value reveal" data-delay="1">
+            <span class="value__num">02 —</span>
+            <div>
+              <h3 class="value__title">Individuality</h3>
+              <p class="value__text">Each brand maintains its own identity and character.</p>
+            </div>
+          </div>
+          <div class="value reveal" data-delay="2">
+            <span class="value__num">03 —</span>
+            <div>
+              <h3 class="value__title">Excellence</h3>
+              <p class="value__text">A commitment to thoughtful experiences and lasting value.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         THE FOUNDER
+         ============================================================ -->
+    <section class="founder" id="founder" aria-labelledby="founder-title">
+      <div class="shell founder__grid">
+        <figure class="founder__figure reveal">
+          <img
+            src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=1200&q=80"
+            alt="Portrait placeholder of the founder in soft, natural editorial light"
+            loading="lazy" />
+          <figcaption>Founder Portrait · Placeholder</figcaption>
+        </figure>
+
+        <div class="founder__copy reveal" data-delay="2">
+          <p class="eyebrow">The Founder</p>
+          <h2 id="founder-title">Behind Every Vision <em>Is a Story.</em></h2>
+          <p class="lede">
+            Meet the founder behind this collection of ventures. A journey shaped by
+            ambition, creativity and a desire to build meaningful experiences across
+            different industries.
+          </p>
+          <a class="btn btn--ghost" href="#contact">
+            Read the Founder's Story <span class="btn__arrow" aria-hidden="true">→</span>
+          </a>
+          <p class="founder__placeholder">
+            Founder name, biography and achievements to be supplied — editable placeholder
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT / CONNECT
+         ============================================================ -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="shell contact__grid">
+
+        <div class="contact__intro reveal">
+          <p class="eyebrow">Connect</p>
+          <h2 id="contact-title">Let's <em>Connect.</em></h2>
+          <p class="lede">
+            For business enquiries, collaborations or general information, we would
+            be delighted to hear from you.
+          </p>
+
+          <div class="contact__channels">
+            <a class="channel" href="https://wa.me/10000000000" target="_blank" rel="noopener noreferrer">
+              <span>
+                <span class="channel__label">WhatsApp</span>
+                <span class="channel__value">Message us directly</span>
+              </span>
+              <span class="channel__arrow" aria-hidden="true">↗</span>
+            </a>
+            <a class="channel" href="mailto:hello@theprivatecollection.example">
+              <span>
+                <span class="channel__label">Email</span>
+                <span class="channel__value">hello@theprivatecollection.example</span>
+              </span>
+              <span class="channel__arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal" data-delay="2">
+          <form class="form" id="contactForm" novalidate>
+            <div class="form__row">
+              <div class="field">
+                <label for="f-name">Name</label>
+                <input id="f-name" name="name" type="text" placeholder="Your full name"
+                       autocomplete="name" required />
+                <span class="field__error" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="f-email">Email</label>
+                <input id="f-email" name="email" type="email" placeholder="you@example.com"
+                       autocomplete="email" required />
+                <span class="field__error" aria-live="polite"></span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="f-subject">Subject</label>
+              <input id="f-subject" name="subject" type="text" placeholder="How can we help?" required />
+              <span class="field__error" aria-live="polite"></span>
+            </div>
+
+            <div class="field">
+              <label for="f-message">Message</label>
+              <textarea id="f-message" name="message" rows="4"
+                        placeholder="Tell us a little about your enquiry…" required></textarea>
+              <span class="field__error" aria-live="polite"></span>
+            </div>
+
+            <div class="form__foot">
+              <button class="btn btn--solid" type="submit">
+                Send Enquiry <span class="btn__arrow" aria-hidden="true">→</span>
+              </button>
+              <p class="form__disclaimer">
+                Demonstration form — actual email delivery requires backend integration.
+              </p>
+            </div>
+
+            <div class="form__success" id="formSuccess" role="status">
+              Thank you — your enquiry has been captured for this demonstration. In the
+              live site, this message would be delivered to the business inbox.
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="shell">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="footer__mark">The Private Collection</span>
+          <span class="footer__tag">Curated Ventures</span>
+          <p class="footer__statement">
+            A collection of independent ventures, united by one vision.
+          </p>
+        </div>
+
+        <nav class="footer__col" aria-label="Footer navigation">
+          <h4>Navigate</h4>
+          <ul class="footer__list">
+            <li><a href="#top">Home</a></li>
+            <li><a href="#businesses">Our Businesses</a></li>
+            <li><a href="#philosophy">Philosophy</a></li>
+            <li><a href="#founder">The Founder</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer__col" aria-label="Business links">
+          <h4>The Businesses</h4>
+          <ul class="footer__list">
+            <li><a href="https://namasiluxuryhair.example.com" target="_blank" rel="noopener noreferrer">Namasi Luxury Hair ↗</a></li>
+            <li><a href="https://insideblueprint.example.com" target="_blank" rel="noopener noreferrer">Inside Blueprint ↗</a></li>
+            <li><a href="https://priveluxfinds.example.com" target="_blank" rel="noopener noreferrer">Privé Lux Finds ↗</a></li>
+            <li><a href="#founder">The Founder</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer__col">
+          <h4>Connect</h4>
+          <ul class="footer__list">
+            <li><a href="mailto:hello@theprivatecollection.example">hello@theprivatecollection.example</a></li>
+            <li><a href="https://wa.me/10000000000" target="_blank" rel="noopener noreferrer">WhatsApp Enquiries ↗</a></li>
+          </ul>
+          <div class="footer__socials" style="margin-top:1.4rem">
+            <a href="#" aria-label="Instagram (placeholder)">Instagram</a>
+            <a href="#" aria-label="LinkedIn (placeholder)">LinkedIn</a>
+            <a href="#" aria-label="Pinterest (placeholder)">Pinterest</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__legal">
+          © <span id="year">2025</span> The Private Collection. All rights reserved.
+          &nbsp;·&nbsp; <a href="#" aria-label="Privacy Policy (placeholder)">Privacy Policy</a>
+        </p>
+        <p class="footer__legal">Demonstration prototype — not a live commercial site.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="totop" id="toTop" type="button" aria-label="Back to top">
+    <span aria-hidden="true">↑</span>
+  </button>
+
+  <!-- ============================================================
+       JAVASCRIPT — vanilla, no dependencies
+       ============================================================ -->
+  <script>
+    (function () {
+      'use strict';
+
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* ---------- 1. Sticky navigation styling ---------- */
+      var nav = document.getElementById('siteNav');
+      var toTop = document.getElementById('toTop');
+      var lastKnownY = window.scrollY;
+
+      function onScroll() {
+        var y = window.scrollY;
+        if (y > 40) { nav.classList.add('is-scrolled'); }
+        else { nav.classList.remove('is-scrolled'); }
+
+        if (y > window.innerHeight * 0.7) { toTop.classList.add('is-shown'); }
+        else { toTop.classList.remove('is-shown'); }
+
+        lastKnownY = y;
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      /* ---------- 2. Mobile drawer ---------- */
+      var burger = document.getElementById('burger');
+      var drawer = document.getElementById('drawer');
+
+      function setDrawer(open) {
+        burger.classList.toggle('is-open', open);
+        drawer.classList.toggle('is-open', open);
+        burger.setAttribute('aria-expanded', String(open));
+        burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        drawer.setAttribute('aria-hidden', String(!open));
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+
+      burger.addEventListener('click', function () {
+        setDrawer(!drawer.classList.contains('is-open'));
+      });
+
+      drawer.querySelectorAll('[data-drawer-link]').forEach(function (link) {
+        link.addEventListener('click', function () { setDrawer(false); });
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && drawer.classList.contains('is-open')) {
+          setDrawer(false);
+          burger.focus();
+        }
+      });
+
+      /* ---------- 3. Smooth anchor scrolling (offset for nav) ---------- */
+      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+          var id = anchor.getAttribute('href');
+          if (!id || id === '#') return;
+          var target = document.querySelector(id);
+          if (!target) return;
+          e.preventDefault();
+
+          var navH = nav.offsetHeight;
+          var top = target.getBoundingClientRect().top + window.scrollY - navH + 1;
+
+          window.scrollTo({
+            top: Math.max(0, top),
+            behavior: reduceMotion ? 'auto' : 'smooth'
+          });
+
+          // Reflect in URL without jumping
+          if (history.replaceState) { history.replaceState(null, '', id); }
+        });
+      });
+
+      /* ---------- 4. Scroll reveal via IntersectionObserver ---------- */
+      var revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window && !reduceMotion) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        revealEls.forEach(function (el) { io.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+      }
+
+      /* ---------- 5. Active nav link highlighting ---------- */
+      var navLinks = Array.prototype.slice.call(document.querySelectorAll('[data-nav]'));
+      var sections = navLinks
+        .map(function (link) {
+          var id = link.getAttribute('href');
+          if (!id || id === '#') return null;
+          var sec = document.querySelector(id);
+          return sec ? { link: link, sec: sec } : null;
+        })
+        .filter(Boolean);
+
+      if ('IntersectionObserver' in window && sections.length) {
+        var spy = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            var match = sections.find(function (s) { return s.sec === entry.target; });
+            if (!match) return;
+            navLinks.forEach(function (l) { l.classList.remove('is-active'); });
+            match.link.classList.add('is-active');
+          });
+        }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+        sections.forEach(function (s) { spy.observe(s.sec); });
+      }
+
+      /* ---------- 6. Back to top ---------- */
+      toTop.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+      });
+
+      /* ---------- 7. Contact form validation + demo success ---------- */
+      var form = document.getElementById('contactForm');
+      var success = document.getElementById('formSuccess');
+
+      var validators = {
+        name: function (v) {
+          if (!v.trim()) return 'Please enter your name.';
+          if (v.trim().length < 2) return 'Please enter at least 2 characters.';
+          return '';
+        },
+        email: function (v) {
+          if (!v.trim()) return 'Please enter your email address.';
+          var re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+          if (!re.test(v.trim())) return 'Please enter a valid email address.';
+          return '';
+        },
+        subject: function (v) {
+          if (!v.trim()) return 'Please enter a subject.';
+          return '';
+        },
+        message: function (v) {
+          if (!v.trim()) return 'Please enter a message.';
+          if (v.trim().length < 10) return 'Please provide a little more detail (10+ characters).';
+          return '';
+        }
+      };
+
+      function fieldWrap(input) { return input.closest('.field'); }
+
+      function validateField(input) {
+        var name = input.name;
+        var check = validators[name];
+        if (!check) return true;
+        var msg = check(input.value);
+        var wrap = fieldWrap(input);
+        var errEl = wrap.querySelector('.field__error');
+        if (msg) {
+          wrap.classList.add('invalid');
+          if (errEl) errEl.textContent = msg;
+          input.setAttribute('aria-invalid', 'true');
+          return false;
+        } else {
+          wrap.classList.remove('invalid');
+          if (errEl) errEl.textContent = '';
+          input.removeAttribute('aria-invalid');
+          return true;
+        }
+      }
+
+      if (form) {
+        var inputs = Array.prototype.slice.call(
+          form.querySelectorAll('input, textarea')
+        );
+
+        inputs.forEach(function (input) {
+          input.addEventListener('blur', function () { validateField(input); });
+          input.addEventListener('input', function () {
+            if (fieldWrap(input).classList.contains('invalid')) {
+              validateField(input);
+            }
+          });
+        });
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var allValid = true;
+          var firstInvalid = null;
+
+          inputs.forEach(function (input) {
+            var ok = validateField(input);
+            if (!ok) {
+              allValid = false;
+              if (!firstInvalid) firstInvalid = input;
+            }
+          });
+
+          if (!allValid) {
+            success.classList.remove('is-shown');
+            if (firstInvalid) firstInvalid.focus();
+            return;
+          }
+
+          // Demonstration success — no real delivery
+          success.classList.add('is-shown');
+          form.reset();
+          inputs.forEach(function (input) {
+            fieldWrap(input).classList.remove('invalid');
+            var errEl = fieldWrap(input).querySelector('.field__error');
+            if (errEl) errEl.textContent = '';
+          });
+          success.scrollIntoView({
+            behavior: reduceMotion ? 'auto' : 'smooth',
+            block: 'center'
+          });
+        });
+      }
+
+      /* ---------- 8. Footer year ---------- */
+      var yearEl = document.getElementById('year');
+      if (yearEl) { yearEl.textContent = String(new Date().getFullYear()); }
+
+    })();
+  </script>
+
+</body>
+</html>
